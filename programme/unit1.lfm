@@ -1,0 +1,62 @@
+object Form1: TForm1
+  Left = 410
+  Height = 505
+  Top = 178
+  Width = 591
+  Caption = 'Form1'
+  ClientHeight = 505
+  ClientWidth = 591
+  DesignTimePPI = 120
+  LCLVersion = '1.8.4.0'
+  object Saisie: TFloatSpinEdit
+    Left = 232
+    Height = 28
+    Top = 112
+    Width = 152
+    Increment = 1
+    MaxValue = 100000
+    MinValue = 0
+    OnChange = SaisieChange
+    TabOrder = 0
+    Value = 0
+  end
+  object Choix: TRadioGroup
+    Left = 192
+    Height = 131
+    Top = 176
+    Width = 231
+    AutoFill = True
+    Caption = 'Conversion'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 106
+    ClientWidth = 227
+    ItemIndex = 0
+    Items.Strings = (
+      'Euro à Dollar Américain'
+      'Dollar Américain à Euro'
+      'Euro à Yen'
+      'Yen à Euro'
+    )
+    OnClick = ChoixClick
+    TabOrder = 1
+  end
+  object Resultat: TFloatSpinEdit
+    Left = 232
+    Height = 28
+    Top = 336
+    Width = 152
+    DecimalPlaces = 4
+    Increment = 1
+    MaxValue = 12675959.31
+    MinValue = 0
+    ReadOnly = True
+    TabOrder = 2
+    Value = 0
+  end
+end
