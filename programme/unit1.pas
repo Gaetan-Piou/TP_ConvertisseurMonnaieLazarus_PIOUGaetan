@@ -6,18 +6,18 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Graphics, Dialogs, StdCtrls,
-  MaskEdit, Spin, ExtCtrls;
+  MaskEdit, Spin, ExtCtrls, Menus;
 
 type
 
-  { TForm1 }
+  { TConv_Monnaie }
 
-  TForm1 = class(TForm)
-    Saisie: TFloatSpinEdit;
-    Choix: TRadioGroup;
-    Resultat: TFloatSpinEdit;
-    procedure ChoixClick(Sender: TObject);
-    procedure SaisieChange(Sender: TObject);
+  TConv_Monnaie = class(TForm)
+    FSE_Saisie: TFloatSpinEdit;
+    RDG_Choix: TRadioGroup;
+    FSE_Resultat: TFloatSpinEdit;
+    procedure RDG_ChoixClick(Sender: TObject);
+    procedure FSE_SaisieChange(Sender: TObject);
   private
 
   public
@@ -25,32 +25,32 @@ type
   end;
 
 var
-  Form1: TForm1;
+  Conv_Monnaie: TConv_Monnaie;
 
 implementation
 
 {$R *.lfm}
 
-{ TForm1 }
+{ TConv_Monnaie }
 
-procedure TForm1.SaisieChange(Sender: TObject);
+procedure TConv_Monnaie.FSE_SaisieChange(Sender: TObject);
 var
   modificateur:DOUBLE;
 
 begin
-  IF Choix.ItemIndex=0 THEN
+  IF RDG_Choix.ItemIndex=0 THEN
   begin
     modificateur:=1.14;
   end
   ELSE
   begin
-    IF Choix.ItemIndex=1 THEN
+    IF RDG_Choix.ItemIndex=1 THEN
     begin
       modificateur:=0.88;
     end
     ELSE
     begin
-      IF Choix.ItemIndex=2 THEN
+      IF RDG_Choix.ItemIndex=2 THEN
       begin
         modificateur:=126.76;
       end
@@ -60,10 +60,10 @@ begin
       end;
     end;
   end;
-  Resultat.Value:=Saisie.Value*modificateur;
+  FSE_Resultat.Value:=FSE_Saisie.Value*modificateur;
 end;
 
-procedure TForm1.ChoixClick(Sender: TObject);
+procedure TConv_Monnaie.RDG_ChoixClick(Sender: TObject);
 begin
   SaisieChange(Sender);
 end;
